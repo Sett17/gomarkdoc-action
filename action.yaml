@@ -8,7 +8,6 @@ inputs:
 runs:
   using: "composite"
   steps:
-    - uses: actions/checkout@v3
     - run: touch ${{ inputs.output-file }}
       shell: bash
     - run: echo Generating docs into ${{ inputs.output-file }}.
@@ -18,8 +17,3 @@ runs:
     - id: generate
       run: ~/go/bin/gomarkdoc . > ${{ inputs.output-file }}
       shell: bash
-    - uses: EndBug/add-and-commit@v9
-      with:
-        commit: --signoff
-        default_author: github_actor
-        message: 'Update docs'
