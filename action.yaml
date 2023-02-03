@@ -15,5 +15,5 @@ runs:
     - run: go install github.com/princjef/gomarkdoc/cmd/gomarkdoc@latest
       shell: bash
     - id: generate
-      run: ~/go/bin/gomarkdoc . > ${{ inputs.output-file }}
+      run: ~/go/bin/gomarkdoc > ${{ inputs.output-file }}
       shell: bash
