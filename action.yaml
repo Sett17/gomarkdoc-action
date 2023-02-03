@@ -1,5 +1,9 @@
 name: 'gomarkdoc'
 description: 'Generate markdown documentation from Go source code'
+branding:
+    icon: 'book-open'
+    color: 'blue'
+
 inputs:
   output-file:
     description: 'The output file to write the documentation to'
