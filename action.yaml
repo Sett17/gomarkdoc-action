@@ -1,0 +1,17 @@
+name: 'gomarkdoc'
+description: 'Generate markdown documentation from Go source code'
+inputs:
+  output-file:
+    description: 'The output file to write the documentation to'
+    required: true
+    default: 'DOC.md'
+runs:
+  using: "composite"
+  steps:
+    - run: echo Generating docs into ${{ inputs.output-file }}.
+      shell: bash
+    - run: go install github.com/princjef/gomarkdoc/cmd/gomarkdoc@latest
+      shell: bash
+    - id: generate
+      run: gomarkdoc -c -o ${{ inputs.output-file }} .
+      shell: bash
