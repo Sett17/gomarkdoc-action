@@ -22,22 +22,26 @@ on:
     branches:
       - main
 
+permissions:
+  contents: write
+
 jobs:
   generate-docs:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
-  
+
       - name: Generate documentation
-        uses: ./.github/actions/gomarkdoc
+        uses: Sett17/gomarkdoc-action@latest
         with:
           output-file: DOC.md
-  
+
       - name: Commit documentation
         uses: EndBug/add-and-commit@v9
         with:
           commit: --signoff
           default_author: github_actor
-          message: 'Update docs'`
+          message: 'Update docs'
 ```
