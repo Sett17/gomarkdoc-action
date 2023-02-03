@@ -9,6 +9,8 @@ runs:
   using: "composite"
   steps:
     - uses: actions/checkout@v3
+    - run: touch ${{ inputs.output-file }}
+      shell: bash
     - run: echo Generating docs into ${{ inputs.output-file }}.
       shell: bash
     - run: go install github.com/princjef/gomarkdoc/cmd/gomarkdoc@latest
